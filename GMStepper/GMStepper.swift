@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable public class GMStepper: UIControl {
+@IBDesignable open class GMStepper: UIControl {
 
     /// Current value of the stepper. Defaults to 0.
     @objc @IBInspectable public var value: Double = 0 {
@@ -78,6 +78,22 @@ import UIKit
     @objc @IBInspectable public var rightButtonText: String = "+" {
         didSet {
             rightButton.setTitle(rightButtonText, for: .normal)
+        }
+    }
+	
+	@objc @IBInspectable public var leftButtonImage: UIImage? = nil {
+        didSet {
+            leftButton.setTitle("", for: .normal)
+			leftButton.tintColor = buttonsTextColor
+			leftButton.setImage(leftButtonImage, for: .normal)
+        }
+    }
+	
+	@objc @IBInspectable public var rightButtonImage: UIImage? = nil {
+        didSet {
+            rightButton.setTitle("", for: .normal)
+			rightButton.tintColor = buttonsTextColor
+			rightButton.setImage(rightButtonImage, for: .normal)
         }
     }
 
